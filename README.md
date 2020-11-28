@@ -1,0 +1,1 @@
+To build the docker images and run the containers for this base project template, execute the following in a unix terminal `docker-compose up --build`.
