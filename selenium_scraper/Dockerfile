@@ -1,5 +1,7 @@
-# Use the Python 3.7.2 container image
-FROM python:3.7.2-stretch
+FROM python:3.8
+
+COPY . /app
+WORKDIR /app
 
 # install google chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -15,14 +17,8 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 # set display port to avoid crash
 ENV DISPLAY=:99
 
-# Set the working directory to /app
-WORKDIR /app
+RUN pip install --upgrade pip
 
-# Copy the current directory contents into the container at /app
-ADD . /app
-
-# Install the dependencies
 RUN pip install -r requirements.txt
 
-# run the command to start uWSGI
-CMD ["uwsgi", "--py-autoreload", "1",  "app.ini"]
+CMD ["python", "./app.py"]
