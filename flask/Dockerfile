@@ -25,4 +25,4 @@ COPY . .
 RUN pip install -r requirements.txt
 
 # run the command to start uWSGI
-#CMD ["uwsgi", "--py-autoreload", "1",  "app.ini"]
+CMD ["uwsgi", "--py-autoreload", "1",  "app.ini"]

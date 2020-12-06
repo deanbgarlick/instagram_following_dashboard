@@ -18,6 +18,6 @@ def index():
 @app.route("/scrape")
 def selenium_function():
     followers, following = scrape_connected_accounts()
-    with open('./app/network.json', 'w') as f:
+    with open('./network.json', 'w') as f:
         json.dump({'followers': followers, 'following': following}, f)
     return "Scraping complete"
