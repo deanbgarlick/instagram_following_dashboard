@@ -16,13 +16,13 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 ENV DISPLAY=:99
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /home/dashboard
 
-# Copy the current directory contents into the container at /app
-ADD . /app
+# Copy the current directory contents into the container at /home/dashboard
+COPY . .
 
 # Install the dependencies
 RUN pip install -r requirements.txt
 
 # run the command to start uWSGI
-CMD ["uwsgi", "--py-autoreload", "1",  "app.ini"]
+#CMD ["uwsgi", "--py-autoreload", "1",  "app.ini"]
