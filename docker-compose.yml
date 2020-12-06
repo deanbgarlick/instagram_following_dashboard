@@ -7,9 +7,11 @@ services:
     container_name: flask
     restart: always
     volumes:
-      - ./flask/app:/app/app
+      - ./flask/app:/home/dashboard/app
+      - ./flask/migrations:/home/dashboard/migrations
     environment:
       - APP_NAME=MyFlaskApp
+      - FLASK_APP=main.py
       - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
       - INSTAGRAM_USERNAME
       - INSTAGRAM_PASSWORD
