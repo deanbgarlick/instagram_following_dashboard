@@ -24,5 +24,8 @@ COPY . .
 # Install the dependencies
 RUN pip install -r requirements.txt
 
-# run the command to start uWSGI
-CMD ["uwsgi", "--py-autoreload", "1",  "app.ini"]
+RUN export FLASK_APP=main.py
+
+RUN chmod +x boot.sh
+
+CMD ["./boot.sh"]

@@ -13,6 +13,7 @@ services:
       - APP_NAME=MyFlaskApp
       - FLASK_APP=main.py
       - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/hello_flask_dev
+      - DATABASE=postgres
       - INSTAGRAM_USERNAME
       - INSTAGRAM_PASSWORD
     expose:
@@ -34,6 +35,8 @@ services:
     restart: always
     ports:
       - "80:80"
+    depends_on:
+      - flask
 
 volumes:
   postgres_data:

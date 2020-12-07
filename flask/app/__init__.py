@@ -1,4 +1,5 @@
-from flask import Flask
+import os
+from flask import Flask, g
 from flask_sqlalchemy import SQLAlchemy
 from .config import Config
 from flask_migrate import Migrate
@@ -12,3 +13,4 @@ migrate = Migrate(app, db)
 
 
 from app import models, scraper, views
+
