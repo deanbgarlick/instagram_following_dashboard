@@ -18,6 +18,7 @@ services:
       - DATABASE=postgres
       - INSTAGRAM_USERNAME
       - INSTAGRAM_PASSWORD
+      - ACCOUNT_TO_SCRAPE=iusedtobeapallet_yyj
     expose:
       - 8080
     depends_on:

@@ -6,7 +6,7 @@ from app import db, models, scraper
 
 def update_users_in_db():
 
-    follower_accounts, following_accounts = scraper.InstagramNetworkScraper().scrape_connection_accounts()
+    follower_accounts, following_accounts = scraper.InstagramNetworkScraper().scrape_connection_accounts(app.config['ACCOUNT_TO_SCRAPE'])
 
     for usernames, date_attribute in [(follower_accounts, 'follower_date'), (following_accounts, 'following_date')]:
         for username in usernames:
