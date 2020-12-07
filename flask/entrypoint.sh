@@ -1,7 +1,5 @@
 #!/bin/sh
 
-flask db upgrade
-
 if [ "$DATABASE" = "postgres" ]
 then
     echo "Waiting for postgres..."

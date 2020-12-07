@@ -26,6 +26,6 @@ RUN pip install -r requirements.txt
 
 RUN export FLASK_APP=main.py
 
-RUN chmod +x boot.sh
+RUN chmod +x entrypoint.sh
 
 CMD ["./entrypoint.sh"]
