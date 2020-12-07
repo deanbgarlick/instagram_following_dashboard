@@ -7,13 +7,18 @@ from app.models import User
 from app.views import get_db_engine
 
 
+cli = FlaskGroup(app)
+
+
+@cli.command("create_db")
 def create_db():
     db.drop_all()
     db.create_all()
     db.session.commit()
 
 
-def update_data():
+@cli.command("seed_db")
+def seed_db():
 
     with open('./network.json', 'r') as f:
         network = json.load(f)
@@ -42,5 +47,4 @@ def update_data():
 
 
 if __name__ == "__main__":
-    create_db()
-    update_data()
+    cli()

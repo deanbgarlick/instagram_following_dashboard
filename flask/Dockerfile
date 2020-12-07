@@ -28,4 +28,4 @@ RUN export FLASK_APP=main.py
 
 RUN chmod +x boot.sh
 
-CMD ["./boot.sh"]
+CMD ["./entrypoint.sh"]
