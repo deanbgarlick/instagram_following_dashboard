@@ -7,7 +7,7 @@ from app import models, db
 from app.models import User
 import datetime
 
-from flask import send_file, g
+from flask import send_file, g, render_template
 
 import pandas as pd
 from sqlalchemy import create_engine
@@ -27,7 +27,8 @@ def index():
     app_name = os.getenv("APP_NAME")
 
     if app_name:
-        return f"Hello from {app_name} running in a Docker container behind Nginx!"
+        return render_template('index.html')
+        #return f"Hello from {app_name} running in a Docker container behind Nginx!"
 
     return "Hello from Flask"
 
