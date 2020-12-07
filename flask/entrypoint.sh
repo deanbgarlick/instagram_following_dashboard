@@ -13,8 +13,4 @@ then
     echo "PostgreSQL started"
 fi
 
-python manage.py create_db
-python manage.py seed_db
-
-# run the command to start uWSGI
-uwsgi --py-autoreload 1 app.ini
+exec "$@"
